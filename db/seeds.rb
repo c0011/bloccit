@@ -20,6 +20,16 @@ end
 
 Post.find_or_create_by(title: "Unique title", body: "Unique body")
 
+#Questions
+100.times do
+  Question.create!(
+  title: Random_Data.random_sentence,
+  body: Random_Data.random_paragraph,
+  resolved: false
+  )
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
