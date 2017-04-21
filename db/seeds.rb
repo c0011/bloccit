@@ -3,8 +3,18 @@
 #
 require 'random_data'
 
+#Create Topics
+15.times do
+  Topic.create!(
+    name: Random_Data.random_sentence,
+    description: Random_Data.random_paragraph
+  )
+end
+topics = Topic.all
+
 50.times do
   Post.create!(
+    topic: topics.sample,
     title: Random_Data.random_sentence,
     body:  Random_Data.random_paragraph
   )
@@ -21,5 +31,6 @@ end
 Post.find_or_create_by(title: "Unique title", body: "Unique body")
 
 puts "Seed finished"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
