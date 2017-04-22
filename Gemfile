@@ -24,3 +24,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
+
+# Used for encrypting User passwords
+gem 'bcrypt'
