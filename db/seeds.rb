@@ -55,6 +55,14 @@ member = User.create!(
   password: 'helloworld'
 )
 
+# Create a moderator
+moderator = User.create!(
+  name:     'Member User',
+  email:    'moderator@example.com',
+  password: 'helloworld',
+  role:     'moderator'
+)
+
 Post.find_or_create_by(title: "Unique title", body: "Unique body")
 
 puts "Seed finished"
