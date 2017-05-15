@@ -16,6 +16,7 @@ group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
 	gem 'shoulda'
 	gem 'rails-controller-testing'
+	gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'sass-rails', '~> 5.0'

@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:name) { Random_Data.random_sentence }
-  let(:description) { Random_Data.random_paragraph }
-  let(:title) { Random_Data.random_sentence }
-  let(:body) { Random_Data.random_paragraph }
-
-  let(:user) { User.create!(name: Random_Data.random_name, email: Random_Data.random_email, password: "helloworld", role: :member) }
-
-  let(:post) { topic.posts.create!(title: title, body: body, user: user) }
-
-  let(:topic) { Topic.create!(name: name, description: description) }
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
 
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
@@ -30,7 +23,7 @@ RSpec.describe Post, type: :model do
 
   describe "attributes" do
     it "has title, body, and user attribute" do
-      expect(post).to have_attributes(title: title, body: body, user: user)
+      expect(post).to have_attributes(title: post.title, body: post.body)
     end
   end
 
